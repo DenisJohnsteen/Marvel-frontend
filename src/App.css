@@ -1,38 +1,127 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  height: 100vh;
+  background-color: #202020;
+  /* background: url("C:\Users\denis\LeReacteur\React\13\exercice13\Marvel\frontend\src\assets\images\backgroundmarvel.jpg")
+    fixed;
+  opacity: 0.3; */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+a:hover {
+  text-decoration: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.searchingBar {
+  margin-top: 150px;
+  margin-bottom: 50px;
+  width: 30%;
+  height: 50px;
+  border: none;
+  border-radius: 0px 5px 5px 0px;
+  background-color: lightgray;
+  font-size: 20px;
+}
+
+.searchBox i {
+  background-color: lightgray;
+  height: 50px;
+  padding-top: 3.5px;
+  color: grey;
+  border-radius: 5px 0px 0px 5px;
+}
+
+img {
+  object-fit: cover;
+}
+
+/* HEADER */
+
+header {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  /* border: 1px solid blue; */
+  width: 100%;
+  height: 160px;
+  background-color: #202020;
+  margin: 0 auto;
+  padding: 0 80px;
+}
+
+header button:hover {
+  color: red;
+}
+
+header img {
+  width: 200px;
+  height: 100;
+}
+
+header .part1 {
+  margin-top: 20px;
+  width: 100%;
+  height: 100px;
+  border-bottom: 1px solid lightgray;
+  /* display: flex;
+  justify-content: center; */
+}
+
+header nav {
+  width: 100%;
+  /* border: 2px solid red; */
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+
+.first-nav button {
+  width: 150px;
+  margin: 10px 20px;
   color: white;
+  border: none;
+  background-color: #202020;
+  font-size: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.signup-join button {
+  color: white;
+  border: none;
+  background-color: #202020;
+  font-size: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.backgound-img {
+  display: flex;
+}
+
+.backgound-img img {
+  height: 400px;
+  width: 100%;
+}
+
+/* HOME */
+
+.container-characters {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  overflow-x: scroll;
+}
+
+.container-characters::-webkit-scrollbar {
+  display: none;
+}
+
+.characters {
+  background-color: #202020;
+  color: lightgrey;
+  height: 680px;
+}
+.characters img {
+  width: 300px;
+  height: 400px;
 }
