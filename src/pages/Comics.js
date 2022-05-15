@@ -59,6 +59,7 @@ const Comics = () => {
             return (
               <div className="characters" key={index}>
                 <img
+                  className="image-hero"
                   src={item.thumbnail.path + "." + item.thumbnail.extension}
                   alt=""
                 />

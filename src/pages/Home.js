@@ -1,5 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+// import Cookies from "js-cookie";
+
+// import des coponents //
+import Pagination from "../components/Pagination";
 
 import axios from "axios";
 
@@ -7,7 +11,8 @@ const Home = ({ favorite, setFavorite }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
-  // const [fav, setFav] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(10);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,6 +29,12 @@ const Home = ({ favorite, setFavorite }) => {
     };
     fetchData();
   }, []);
+
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return isLoading === true ? (
     <div>En cours de chargement...</div>
   ) : (
@@ -60,33 +71,44 @@ const Home = ({ favorite, setFavorite }) => {
             return (
               <div key={index}>
                 <div className="characters">
-                  <button
-                    onClick={() => {
-                      const tab = [...favorite];
-                      tab.push(characters);
+                  <div className="container-img">
+                    <Link to={`/charactercomics/${id}`}>
+                      <img
+                        className="image-hero"
+                        src={
+                          characters.thumbnail.path +
+                          "." +
+                          characters.thumbnail.extension
+                        }
+                        alt=""
+                      />
+                    </Link>
+                    <i
+                      onClick={() => {
+                        const tab = [...favorite];
+                        tab.push(characters);
+                        // Cookies.set("favorite", favorite, { expires: 3 });
+                        setFavorite(tab);
+                      }}
+                      className="fa-solid fa-heart fa-2x"
+                    ></i>
+                  </div>
 
-                      setFavorite(tab);
-                    }}
-                  >
-                    fav
-                  </button>
-                  <Link to={`/charactercomics/${id}`}>
-                    <img
-                      src={
-                        characters.thumbnail.path +
-                        "." +
-                        characters.thumbnail.extension
-                      }
-                      alt=""
-                    />
-                  </Link>
-                  <h1>{characters.name}</h1>
-                  <p>{characters.description}</p>
+                  <div className="texteimage">
+                    <h1>{characters.name}</h1>
+                    <p>{characters.description}</p>
+                  </div>
                 </div>
               </div>
             );
-          })}
+          })
+          .slice(indexOfFirstPost, indexOfLastPost)}
       </div>
+      <Pagination
+        postsPerPage={postsPerPage}
+        totalPosts={data.results.length}
+        paginate={paginate}
+      />
     </>
   );
 };

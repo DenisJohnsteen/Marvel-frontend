@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import iron from "../assets/images/iron.jpg";
 import hulkvsiron from "../assets/images/hulkvsiron.webp";
+import backgroundmarvel from "../assets/images/backgroundmarvel.jpg";
 
-const Header = () => {
-  // const navigate = useNavigate();
+const Header = ({ token, handleToken }) => {
+  const navigate = useNavigate();
   return (
     <div className="container-header">
       <header>
@@ -29,16 +30,50 @@ const Header = () => {
               <button>Favorite</button>
             </Link>
           </div>
+
           <div className="signup-join">
-            <button>SIGN IN</button>
-            <button>|</button>
-            <button>JOIN</button>
+            {token === null ? (
+              <>
+                <Link to="/login">
+                  <button>SIGN IN</button>
+                </Link>
+                <button>|</button>
+                <Link to="/signup">
+                  <button>JOIN</button>{" "}
+                </Link>
+              </>
+            ) : (
+              <button
+                onClick={() => {
+                  handleToken(null);
+                  navigate("/");
+                }}
+              >
+                DISCONNECT
+              </button>
+            )}
           </div>
         </nav>
       </header>
-      <section className="backgound-img">
-        <img src={iron} alt="" />
-        <img src={hulkvsiron} alt="" />
+
+      <center>
+        <div className="anview-logo">
+          <span>WELCOME</span>
+          <br />
+          <span>&nbsp;&nbsp;TO</span>
+          <br />
+          <span>DENIS'S</span>
+          <br />
+          <span>API</span>
+          <br />
+          <span>MARVEL</span>
+        </div>
+      </center>
+
+      <section className="background-img">
+        <img src={backgroundmarvel} alt="" />
+        {/* <img src={iron} alt="" />
+        <img src={hulkvsiron} alt="" /> */}
       </section>
     </div>
   );
