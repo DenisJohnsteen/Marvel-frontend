@@ -12,10 +12,13 @@ const Login = ({ handleToken }) => {
     try {
       event.preventDefault();
 
-      const response = await axios.post("http://localhost:4000/user/login", {
-        email: email,
-        password: password,
-      });
+      const response = await axios.post(
+        "https://marvel-backend-deploy.herokuapp.com/user/login",
+        {
+          email: email,
+          password: password,
+        }
+      );
       //   console.log(response.data);
       handleToken(response.data.token);
       navigate("/");
@@ -25,7 +28,7 @@ const Login = ({ handleToken }) => {
   };
 
   return (
-    <div>
+    <div className="input-container">
       <form onSubmit={handleSubmit}>
         <input
           type="email"

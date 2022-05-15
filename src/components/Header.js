@@ -1,6 +1,4 @@
 import { Link, useNavigate } from "react-router-dom";
-import iron from "../assets/images/iron.jpg";
-import hulkvsiron from "../assets/images/hulkvsiron.webp";
 import backgroundmarvel from "../assets/images/backgroundmarvel.jpg";
 
 const Header = ({ token, handleToken }) => {
@@ -72,8 +70,6 @@ const Header = ({ token, handleToken }) => {
 
       <section className="background-img">
         <img src={backgroundmarvel} alt="" />
-        {/* <img src={iron} alt="" />
-        <img src={hulkvsiron} alt="" /> */}
       </section>
     </div>
   );

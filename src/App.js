@@ -10,7 +10,6 @@ import { useState } from "react";
 
 //IMPORTS DES COMPOSANTS
 import Header from "./components/Header";
-import Test from "./components/Test";
 
 //IMPORTS DES PAGES
 import Home from "./pages/Home";

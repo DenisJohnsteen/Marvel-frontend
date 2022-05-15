@@ -29,12 +29,15 @@ const Signup = ({ handleToken }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post("http://localhost:4000/user/signup", {
-        username: name,
-        email: email,
-        password: password,
-        newsletter: newsletter,
-      });
+      const response = await axios.post(
+        "https://marvel-backend-deploy.herokuapp.com/user/signup",
+        {
+          username: name,
+          email: email,
+          password: password,
+          newsletter: newsletter,
+        }
+      );
 
       console.log(response.data);
       handleToken(response.data.token);
