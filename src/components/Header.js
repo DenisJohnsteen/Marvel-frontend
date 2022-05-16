@@ -58,13 +58,17 @@ const Header = ({ token, handleToken }) => {
         <div className="anview-logo">
           <span>WELCOME</span>
           <br />
-          <span>&nbsp;&nbsp;TO</span>
+          <span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TO
+          </span>
           <br />
-          <span>DENIS'S</span>
+          <span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DENIS'S</span>
           <br />
-          <span>API</span>
+          <span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;API
+          </span>
           <br />
-          <span>MARVEL</span>
+          <span>&nbsp;&nbsp;&nbsp;&nbsp;MARVEL</span>
         </div>
       </center>
 
